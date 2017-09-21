@@ -8,8 +8,7 @@ module.exports = {
     context: __dirname + '/frontend',
     entry: {
         home: './home',
-        about: './about',
-        welcome: './welcome'
+        about: './about'
     },
 
     output: {
@@ -50,6 +49,9 @@ module.exports = {
     plugins : [
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'common'
         }),
         new webpack.NoErrorsPlugin()
     ]
