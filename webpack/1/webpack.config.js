@@ -5,11 +5,16 @@ const NODE_ENV = process.env.NODE_ENV || 'dev';
 
 
 module.exports = {
-    entry: './home',
+    context: __dirname + '/frontend',
+    entry: {
+        home: './home',
+        about: './about'
+    },
 
     output: {
-        filename: 'build.js',
-        library: 'home'
+        path: __dirname + '/public',
+        filename: '[name].js',
+        library: '[name]'
     },
 
     watch: NODE_ENV === 'dev',
