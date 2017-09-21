@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 
 const NODE_ENV = process.env.NODE_ENV || 'dev';
-console.log('NODE_ENV', NODE_ENV);
 
 
 
@@ -20,6 +19,16 @@ module.exports = {
     },
 
     devtool: NODE_ENV ==='dev' ? 'source-map' : null,
+
+    module : {
+        loaders : [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader'
+            }
+        ]
+    },
 
     plugins : [
         new webpack.DefinePlugin({

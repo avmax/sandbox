@@ -1,4 +1,4 @@
-module.exports = function(message) {
+export default function(message) {
 
     if (NODE_ENV === 'dev') {
         console.log(message);
