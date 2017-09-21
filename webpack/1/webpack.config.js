@@ -8,7 +8,8 @@ module.exports = {
     context: __dirname + '/frontend',
     entry: {
         home: './home',
-        about: './about'
+        about: './about',
+        welcome: './welcome'
     },
 
     output: {
@@ -49,7 +50,8 @@ module.exports = {
     plugins : [
         new webpack.DefinePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV)
-        })
+        }),
+        new webpack.NoErrorsPlugin()
     ]
 };
 
