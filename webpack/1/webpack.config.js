@@ -52,6 +52,10 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: 'common'
         }),
+        new webpack.ContextReplacementPlugin(
+            /node_modules\/moment\/locale/,
+            /ru|en-jb/
+        ),
         new webpack.NoErrorsPlugin()
     ]
 };

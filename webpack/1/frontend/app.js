@@ -1,14 +1,7 @@
 'use strict';
 
-let moduleName = location.pathname.slice(1);
-let handler;
+const moment = require('moment');
 
-try {
-    handler = require('bundle!./routes/' + moduleName);
-} catch(e) {
-    alert('No such module: ', moduleName);
-}
+let today = moment(new Date()).locale('ru');
 
-if (handler) {
-    handler((route) => { route() });
-}
+alert(today.format('DD  MM YYYY'));
