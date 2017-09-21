@@ -14,8 +14,14 @@ module.exports = {
         filename: 'app.js',
     },
 
-    externals: {
-        lodash: "_"
+    module : {
+        loaders: [{
+            test: /\.js$/,
+            include: __dirname + '/frontend',
+            loader: 'babel-loader'
+        }],
+
+        noParse: /node_modules\/(angular\/angular.js|jquery)/
     }
 };
 

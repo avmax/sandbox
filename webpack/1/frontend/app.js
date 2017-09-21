@@ -1,4 +1,4 @@
 'use strict';
 
+import angular from 'angular';
 
-console.log(_.flatten([1, [2, [3, [4]], 5]]));
