@@ -1,14 +1,14 @@
 'use strict';
 
 let moduleName = location.pathname.slice(1);
-
-console.log('modulename:', moduleName);
-
-let context = require.context('./routes', false);
+let handler;
 
 try {
-    let route = context('./' + moduleName);
+    handler = require('bundle!./routes/' + moduleName);
 } catch(e) {
-    alert(e);
+    alert('No such module: ', moduleName);
 }
 
+if (handler) {
+    handler((route) => { route() });
+}

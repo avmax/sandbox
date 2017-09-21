@@ -1,1 +1,3 @@
-alert('home!!!');
+export default function() {
+  alert('home!!!');
+};

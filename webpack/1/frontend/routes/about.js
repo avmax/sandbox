@@ -1,1 +1,3 @@
-alert('about!!!');
+export default function() {
+    alert('about!!!');
+};
