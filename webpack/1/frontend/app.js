@@ -1,7 +1,4 @@
 'use strict';
 
-const moment = require('moment');
 
-let today = moment(new Date()).locale('ru');
-
-alert(today.format('DD  MM YYYY'));
+console.log(_.flatten([1, [2, [3, [4]], 5]]));
