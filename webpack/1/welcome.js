@@ -1,3 +1,8 @@
 module.exports = function(message) {
-  alert(`welcome ${message}`);
+
+    if (NODE_ENV === 'dev') {
+        console.log(message);
+    }
+
+    alert(`welcome ${message}`);
 };
