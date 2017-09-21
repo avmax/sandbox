@@ -20,6 +20,17 @@ module.exports = {
 
     devtool: NODE_ENV ==='dev' ? 'source-map' : null,
 
+    resolve : {
+        modulesDirectories: ['node_modules'],
+        extensions: ['', '.js']
+    },
+
+    resolveLoader: {
+        modulesDirectories: ['node_modules'],
+        moduleTemplates: ['*', '*-loader'],
+        extensions: ['', '.js']
+    },
+
     module : {
         loaders : [
             {
