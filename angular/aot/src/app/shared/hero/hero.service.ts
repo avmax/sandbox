@@ -13,7 +13,6 @@ export class HeroService {
   constructor(private http: Http) { }
 
   getHeroes(): Promise<Hero[]> {
-    console.log('custom hero');
     return Promise.resolve(db.getData() as Hero[])
   }
 
