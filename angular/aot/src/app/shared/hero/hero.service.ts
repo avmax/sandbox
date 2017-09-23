@@ -4,6 +4,7 @@ import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { Hero } from './hero';
+import { db } from '../in-memory-data.service';
 
 @Injectable()
 export class HeroService {
@@ -11,14 +12,9 @@ export class HeroService {
 
   constructor(private http: Http) { }
 
-  getHeroes(): Promise<Array<Hero>> {
-    return this.http
-      .get(this.heroesUrl)
-      .toPromise()
-      .then((response) => {
-        return response.json().data as Hero[];
-      })
-      .catch(this.handleError);
+  getHeroes(): Promise<Hero[]> {
+    console.log('custom hero');
+    return Promise.resolve(db.getData() as Hero[])
   }
 
   getHero(id: number): Promise<Hero> {
@@ -34,42 +30,17 @@ export class HeroService {
   }
 
   delete(hero: Hero): Promise<Response> {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    const url = `${this.heroesUrl}/${hero.id}`;
-
-    return this.http
-      .delete(url, { headers: headers })
-      .toPromise()
-      .catch(this.handleError);
+    return db.delHero(hero.id);
   }
 
   // Add new Hero
   private post(hero: Hero): Promise<Hero> {
-    const headers = new Headers({
-      'Content-Type': 'application/json'
-    });
-
-    return this.http
-      .post(this.heroesUrl, JSON.stringify(hero), { headers: headers })
-      .toPromise()
-      .then(res => res.json().data)
-      .catch(this.handleError);
+    return db.addHero(hero);
   }
 
   // Update existing Hero
   private put(hero: Hero): Promise<Hero> {
-    const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-
-    const url = `${this.heroesUrl}/${hero.id}`;
-
-    return this.http
-      .put(url, JSON.stringify(hero), { headers: headers })
-      .toPromise()
-      .then(() => hero)
-      .catch(this.handleError);
+    return db.updateHero(hero);
   }
 
   private handleError(error: any): Promise<any> {

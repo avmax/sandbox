@@ -1,6 +1,5 @@
-export class InMemoryDataService {
-  createDb() {
-    const heroes = [
+export class DB {
+    private heroes = [
       { id: 11, name: 'Mr. Nice' },
       { id: 12, name: 'Narco' },
       { id: 13, name: 'Bombasto' },
@@ -12,6 +11,41 @@ export class InMemoryDataService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' }
     ];
-    return { heroes };
+
+  public getData(): any {
+    return this.heroes;
   }
+
+  public delHero(id: number): Promise<any> {
+    this.heroes = this.heroes.map((hero: any) => {
+      if (hero.id !== id) {
+        return hero;
+      }
+    });
+
+    return Promise.resolve(this.heroes);
+  }
+
+  public addHero(hero: any): Promise<any> {
+    this.heroes = [
+      ...this.heroes,
+      hero
+    ];
+
+    return Promise.resolve(hero);
+  };
+
+  public updateHero(hero: any): Promise<any> {
+    this.heroes = this.heroes.map((h: any) => {
+      if (h.id === hero.id) {
+        return hero;
+      } else {
+        return h;
+      }
+    });
+
+    return Promise.resolve(hero);
+  };
 }
+
+export const db = new DB();

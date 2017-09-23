@@ -3,9 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './shared/in-memory-data.service';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeroService } from './shared/hero/hero.service';
@@ -20,7 +17,6 @@ import { HeroSearchComponent } from './components/hero-search/hero-search.compon
     FormsModule,
     AppRoutingModule,
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService, { delay: 600 })
   ],
   declarations: [
     AppComponent,
