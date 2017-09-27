@@ -1,36 +1,49 @@
+const webpackMerge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
+
 const helpers = require('./helpers');
-const webpackMerge = require('webpack-merge'); // used to merge webpack configs
-const webpackCommon = require('./webpack.common.js'); // the settings that are common to prod and dev
 
-// const webpackMergeDll = webpackMerge.strategy({plugins: 'replace'});
-// const DllBundlesPlugin = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
-// const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const IS_DEV_SERVER = process.env.DEV_SERVER;
 
 
 
-module.exports = function (options) {
-  return webpackMerge(webpackCommon(), {
-    devtool: 'inline-source-map',
+console.log('WEBPACK IS RUNNING IN DEV MODE');
 
-    output: {
-      path: helpers.root('dist'),
-      publicPath: '/',
-      filename: '[name].bundle.js',
-      sourceMapFilename: '[name].bundle.map',
-      chunkFilename: '[id].chunk.js'
-    },
+if (IS_DEV_SERVER) {
+    console.log('WEBPACK IS RUNNING IN DEV SERVER MODE');
+}
+console.log('------------------------------');
 
 
-    // TODO: add DLL Plugin
 
-    devServer: {
-      historyApiFallback: true,
-      stats: 'minimal',
-      watchOptions: {
-        aggregateTimeout: 300,
-        poll: 1000
-      }
+module.exports = function(options) {
+    let cfg = webpackMerge(commonConfig(), {
+        devtool: 'cheap-module-eval-source-map',
+
+        output: {
+            path: helpers.root('dist'),
+            // publicPath: '/assets/',
+            filename: '[name].bundle.js',
+            sourceMapFilename: '[name].bundle.map',
+            chunkFilename: '[id].chunk.js'
+        },
+
+        plugins: [
+            new ExtractTextPlugin('[name].css')
+        ]
+    });
+
+    if (IS_DEV_SERVER) {
+        cfg.devServer = {
+            historyApiFallback: true,
+            stats: 'minimal',
+            watchOptions: {
+                aggregateTimeout: 300,
+                poll: 1000
+            }
+        }
     }
-  })
-};
 
+    return cfg;
+};
