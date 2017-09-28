@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import {DashboardModule} from "./dashboard.module";
 import {DashboardComponent} from "./dashboard.component";
 
-export const routes = [
+
+
+export const DASHBOARD_ROUTES: Routes = [
   {
     path: '',
     component: DashboardComponent
@@ -14,16 +14,5 @@ export const routes = [
 
 
 
-@NgModule({
-  imports: [
-    CommonModule,
-    DashboardModule,
-    RouterModule.forChild(routes)
-  ]
-})
+export const DASHBOARD_ROUTING: ModuleWithProviders = RouterModule.forChild(DASHBOARD_ROUTES);
 
-
-
-export class DashboardRouting {
-  public static routes = routes;
-}

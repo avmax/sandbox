@@ -1,0 +1,17 @@
+import { ModuleWithProviders } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+
+
+
+const APP_ROUTES: Routes = [
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'detail/:id', component: HeroDetailComponent },
+  { path: 'dashboard', loadChildren: './components/dashboard/dashboard.module#DashboardModule' },
+  { path: 'heroes', loadChildren: './components/heroes/heroes.module#HeroesModule' }
+];
+
+
+
+export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

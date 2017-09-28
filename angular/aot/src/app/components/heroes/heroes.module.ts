@@ -1,23 +1,27 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from "@angular/router";
 
 import {HeroesComponent} from './heroes.component';
-import {HeroDetailComponent} from "../hero-detail/hero-detail.component";
+import {HEROES_ROUTING} from "./heroes.routing";
+
+import {SharedModule} from "../../shared.module";
 
 
 @NgModule({
   imports: [
+    HEROES_ROUTING,
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    SharedModule
   ],
   declarations: [
-    HeroesComponent,
-    HeroDetailComponent
+    HeroesComponent
   ],
   exports: [
-    HeroesComponent,
-    HeroDetailComponent
+    HeroesComponent
   ]
 })
 

@@ -1,22 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from "@angular/router";
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { APP_ROUTING } from './app.routing';
 import { HeroService } from './shared/hero/hero.service';
-import {HeroesModule} from "./components/heroes/heroes.module";
-import {DashboardModule} from "./components/dashboard/dashboard.module";
+import {SharedModule} from "./shared.module";
+
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
     HttpModule,
-    DashboardModule,
-    HeroesModule
+    RouterModule,
+    APP_ROUTING,
+    SharedModule
   ],
   declarations: [
     AppComponent
@@ -24,4 +25,7 @@ import {DashboardModule} from "./components/dashboard/dashboard.module";
   providers: [HeroService],
   bootstrap: [AppComponent]
 })
+
+
+
 export class AppModule { }

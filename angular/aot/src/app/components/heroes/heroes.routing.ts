@@ -1,11 +1,11 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
+import {ModuleWithProviders} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
-import {HeroesModule} from "./heroes.module";
 import {HeroesComponent} from "./heroes.component";
 
-export const routes = [
+
+
+export const HEROES_ROUTES: Routes = [
   {
     path: '',
     component: HeroesComponent
@@ -14,16 +14,4 @@ export const routes = [
 
 
 
-@NgModule({
-  imports: [
-    CommonModule,
-    HeroesModule,
-    RouterModule.forChild(routes)
-  ]
-})
-
-
-
-export class HeroesRouting {
-  public static routes = routes;
-}
+export const HEROES_ROUTING: ModuleWithProviders = RouterModule.forChild(HEROES_ROUTES);
