@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { APP_ROUTING } from './app.routing';
+import { AppRoutingModule } from './app.routing';
 import { HeroService } from './shared/hero/hero.service';
 import {SharedModule} from "./shared.module";
 
@@ -16,8 +16,9 @@ import {SharedModule} from "./shared.module";
     FormsModule,
     HttpModule,
     RouterModule,
-    APP_ROUTING,
-    SharedModule
+
+    SharedModule,
+    AppRoutingModule
   ],
   declarations: [
     AppComponent

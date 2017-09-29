@@ -1,4 +1,4 @@
-import {ModuleWithProviders} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {DashboardComponent} from "./dashboard.component";
@@ -14,5 +14,12 @@ export const DASHBOARD_ROUTES: Routes = [
 
 
 
-export const DASHBOARD_ROUTING: ModuleWithProviders = RouterModule.forChild(DASHBOARD_ROUTES);
+@NgModule({
+  imports: [RouterModule.forChild(DASHBOARD_ROUTES)], // enableTracing
+  exports: [RouterModule]
+})
 
+
+
+
+export class DashboardRoutingModule { }

@@ -1,4 +1,4 @@
-import {ModuleWithProviders} from '@angular/core';
+import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {HeroesComponent} from "./heroes.component";
@@ -14,4 +14,12 @@ export const HEROES_ROUTES: Routes = [
 
 
 
-export const HEROES_ROUTING: ModuleWithProviders = RouterModule.forChild(HEROES_ROUTES);
+@NgModule({
+  imports: [RouterModule.forChild(HEROES_ROUTES)], // enableTracing
+  exports: [RouterModule]
+})
+
+
+
+
+export class HeroesRoutingModule { }

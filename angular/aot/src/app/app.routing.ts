@@ -1,4 +1,4 @@
-import { ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
@@ -14,4 +14,12 @@ const APP_ROUTES: Routes = [
 
 
 
-export const APP_ROUTING: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
+@NgModule({
+  imports: [RouterModule.forRoot( APP_ROUTES, {useHash: true} )], // enableTracing
+  exports: [RouterModule]
+})
+
+
+
+
+export class AppRoutingModule { }

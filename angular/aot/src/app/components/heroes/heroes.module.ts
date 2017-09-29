@@ -4,18 +4,19 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from "@angular/router";
 
 import {HeroesComponent} from './heroes.component';
-import {HEROES_ROUTING} from "./heroes.routing";
+import {HeroesRoutingModule} from "./heroes.routing";
 
 import {SharedModule} from "../../shared.module";
 
 
 @NgModule({
   imports: [
-    HEROES_ROUTING,
     CommonModule,
     FormsModule,
     RouterModule,
-    SharedModule
+
+    SharedModule,
+    HeroesRoutingModule
   ],
   declarations: [
     HeroesComponent
