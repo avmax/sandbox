@@ -19,14 +19,11 @@ console.log('------------------------------');
 
 module.exports = function(options) {
     let cfg = webpackMerge(commonConfig(), {
-        devtool: 'cheap-module-eval-source-map',
 
         output: {
             path: helpers.root('dist'),
-            // publicPath: '/assets/',
             filename: '[name].bundle.js',
-            sourceMapFilename: '[name].bundle.map',
-            chunkFilename: '[id].chunk.js'
+            sourceMapFilename: '[name].bundle.map'
         },
 
         plugins: [
