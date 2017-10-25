@@ -1,0 +1,79 @@
+@keyframes rotateTree {
+    0% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(10deg);
+        -moz-transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+        -moz-transform: rotate(-100deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+}
+
+@keyframes rotateTree1 {
+    0% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+        -moz-transform: rotate(5deg);
+    }
+    50% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+        -moz-transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+}
+
+.tree {
+    fill: red;
+    transform-origin: center center;
+    -moz-transform-origin: center center);
+}
+
+.tree2 {
+    animation: 20s rotateTree linear infinite;
+}
+
+.tree3 {
+    animation: 6s rotateTree 2s ease-out infinite;
+}
+
+.tree4 {
+    animation: 15s rotateTree 1s ease-in infinite;
+}
+
+.tree5 {
+    animation: 30s rotateTree1 ease-out infinite;
+}
+
+.tree6 {
+    animation: 20s rotateTree1 3s ease-out infinite;
+}
+
+.tree7 {
+    animation: 15s rotateTree .5s ease-out infinite;
+}
+
+.tree8 {
+    animation: 10s rotateTree 1s linear infinite;
+}
