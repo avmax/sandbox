@@ -8,6 +8,7 @@
     "dev:aot": "NODE_ENV=dev DEV_SERVER=1 AOT=1 webpack-dev-server --inline --color --progress --bail --port 4200",
     "dev:aot:hot": "NODE_ENV=dev DEV_SERVER=1 AOT=1 webpack-dev-server --inline --hot --color --progress --bail --port 4200",
     "dev:analyse": "rm -rf ./dist/* && NODE_ENV=dev ANALYSE=1 webpack --progress --display-modules --bail",
+    "dev:aot:analyse": "rm -rf ./dist/* && NODE_ENV=dev AOT=1 ANALYSE=1 webpack --progress --display-modules --bail",
     "build": "rm -rf ./dist/* && NODE_ENV=production webpack --progress --profile --bail",
     "build:analyse": "rm -rf ./dist/* && NODE_ENV=production ANALYSE=1 webpack --progress --profile --display-modules --bail",
     "build:aot": "rm -rf ./dist/* && NODE_ENV=production AOT=1 webpack --progress --profile --bail",
